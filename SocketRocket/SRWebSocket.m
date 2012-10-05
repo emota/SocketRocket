@@ -370,6 +370,11 @@ static __strong NSData *CRLFCRLF;
 }
 
 
+- (void)markAsVoIP; {
+    [_inputStream setProperty:NSStreamNetworkServiceTypeVoIP forKey:NSStreamNetworkServiceType];
+    [_outputStream setProperty:NSStreamNetworkServiceTypeVoIP forKey:NSStreamNetworkServiceType];
+}
+
 
 - (BOOL)_checkHandshake:(CFHTTPMessageRef)httpMessage;
 {
